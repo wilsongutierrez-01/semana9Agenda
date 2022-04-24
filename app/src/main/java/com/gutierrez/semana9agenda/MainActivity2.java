@@ -22,6 +22,19 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        Button btnregraLogin = (Button)findViewById(R.id.btnregresaLogin);
+
+        btnregraLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent volver = new Intent(MainActivity2.this,Principal.class);
+                startActivity(volver);
+            }
+
+        });
+
+
+
         Name = (EditText)findViewById(R.id.etName);
         Password = (EditText)findViewById(R.id.etPassword);
         Info = (TextView)findViewById(R.id.tvInfo) ;
