@@ -4,8 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary80"
+    android:background="@color/teal_200"
     tools:context=".Celu1">
+
+    <Button
+        android:id="@+id/bt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bt1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
     <Button
         android:id="@+id/bt2"
@@ -21,51 +33,38 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="188dp"
-        android:layout_height="242dp"
+        android:layout_width="190dp"
+        android:layout_height="216dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.151"
+        app:layout_constraintTop_toBottomOf="@+id/txtGamaAlta1"
+        app:layout_constraintVertical_bias="0.074"
         app:srcCompat="@drawable/ima1" />
 
     <TextView
         android:id="@+id/txtGamaAlta1"
-        android:layout_width="162dp"
-        android:layout_height="32dp"
+        android:layout_width="157dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:text="@string/GA1"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/bt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/bt1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
     <AutoCompleteTextView
         android:id="@+id/atxt1"
-        android:layout_width="411dp"
-        android:layout_height="334dp"
-        android:text="DIMENSIONES Y PESO  163,3 x 77,9 x 8,9 mm  227 gramos.  PANTALLA  Dynamic AMOLED 2X curva de 6,8 pulgadas  Resolución 3.080 x 1.440 píxeles  500 ppp  Tasa de refresco adaptativa: 1-120 Hz  Muestreo táctil: 240 Hz  HDR10+  Gorilla Glass Victus . PROCESADOR  Samsung Exynos 2200  GPU AMD RDNA 2.  MEMORIA RAM  8/12 GB.  ALMACENAMIENTO INTERNO  128/256/512 GB/1TB.  CÁMARA TRASERA  108 MP f/1.8, OIS  Gran angular 12 MP, 120º, f/2.2  Telefoto 10 MP,  69 mm, f/2.4, OIS  Telefoto 10 MP, 230 mm, f/1.49, OIS.  CÁMARA DELANTERA  40 MP f/2.2.  BATERÍA  5.000 mAh  Carga rápida 45W  Carga inalámbrica 15W  Carga inalámbrica inversa.  SISTEMA OPERATIVO  Android 12 con One UI 4.1.  CONECTIVIDAD  5G  Dual SIM  eSIM  Bluetooth 5.2  USB tipo C  NFC  WiFi 6E  GPS  UWB.  OTROS  Resistencia IP68  Samsung DeX  Knox  Sensor de huellas bajo la pantalla  Compatible con S-Pen"
-        android:textSize="14sp"
-        android:textStyle="normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pantalla: 6.8&quot;, 1440 x 3080 pixels. Procesador: Snapdragon 8 Gen 1 3GHz / Exynos 2200 2.8GHz. RAM: 8GB/12GB. Almacenamiento: 128GB/256GB/512GB/1TB. Expansión: sin microSD. Cámara: Cuádruple, 108MP+10MP +10MP+12MP. Batería: 5000 mAh. OS: Android 12. Perfil: 8.9 mm. Peso: 228 g."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.698"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.819" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.169" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,44 +10,47 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semana9Agenda">
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AcercaDe"
-            android:exported="false" />
-        <activity
-            android:name=".Celu9"
-            android:exported="false" />
-        <activity
-            android:name=".Celu8"
-            android:exported="false" />
-        <activity
-            android:name=".Celu7"
-            android:exported="false" />
-        <activity
-            android:name=".Celu6"
-            android:exported="false" />
-        <activity
-            android:name=".Celu5"
-            android:exported="false" />
-        <activity
-            android:name=".Celu4"
+            android:name=".Contactos"
             android:exported="false" />
         <activity
             android:name=".Celu3"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Celu2"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Celu1"
-            android:exported="false" />
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AcercaDe"
+            android:exported="true" />
+        <activity
+            android:name=".Celu9"
+            android:exported="true" />
+        <activity
+            android:name=".Celu8"
+            android:exported="true" />
+        <activity
+            android:name=".Celu7"
+            android:exported="true" />
+        <activity
+            android:name=".Celu6"
+            android:exported="true" />
+        <activity
+            android:name=".Celu5"
+            android:exported="true" />
+        <activity
+            android:name=".Celu4"
+            android:exported="true" />
         <activity
             android:name=".AddCelulares"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity2"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Principal"
             android:exported="true">

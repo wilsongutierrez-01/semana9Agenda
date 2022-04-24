@@ -49,4 +49,7 @@
     <string name="GB3">POCO M3 PRO</string>
     <string name="bt17">MENÚ PRINCIPAL</string>
 
+    <string name="con">CONTÁCTANOS</string>
+    <string name="bvol">VOLVER AL MENÚ</string>
+    <string name="bcontact">CONTÁCTANOS</string>
 </resources>

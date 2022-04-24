@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 
 public class DB extends SQLiteOpenHelper {
     Context miContext;
-    static String nombreDB = "db_celulares";
+    static String nombreDB = "db_celular";
 
-    static String tbcelus = "CREATE TABLE tbcelus(idCelular INTEGER PRIMARY KEY AUTOINCREMENT, gama TEXT NOT NULL, marca TEXT NOT NULL, modelo TEXT NOT NULL, precio TEXT NOT NULL, fecha_enta TEXT NOT NULL)";
+    static String tbcelu = "CREATE TABLE tbcelu(idCelular INTEGER PRIMARY KEY AUTOINCREMENT, gama TEXT NOT NULL, marca TEXT NOT NULL, modelo TEXT NOT NULL, precio TEXT NOT NULL, fecha_venta TEXT NOT NULL)";
 
     public DB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, nombreDB, factory, version);
@@ -21,7 +21,7 @@ public class DB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase DataBase) {
 
-        DataBase.execSQL(tbcelus);
+        DataBase.execSQL(tbcelu);
     }
 
     @Override
@@ -35,16 +35,16 @@ public class DB extends SQLiteOpenHelper {
         SQLiteDatabase sqlDataBaseR = getReadableDatabase();
         switch (accion){
             case "consultar":
-                datosCursor = sqlDataBaseR.rawQuery("SELECT * FROM tbcelus ORDER BY gama", null);
+                datosCursor = sqlDataBaseR.rawQuery("SELECT * FROM tbcelu ORDER BY modelo", null);
                 break;
 
             case "nuevo":
-                sqlDataBaseW.execSQL("INSERT INTO tbcelus(gama, marca, modelo, precio, fecha_venta) VALUES ('"+datos[1]+"', '"+datos[2]+"', '"+datos[3]+"', '"+datos[4]+"', '"+datos[5]+"')");
+                sqlDataBaseW.execSQL("INSERT INTO tbcelu(gama, marca, modelo, precio, fecha_venta) VALUES ('"+datos[1]+"', '"+datos[2]+"', '"+datos[3]+"', '"+datos[4]+"', '"+datos[5]+"')");
                 break;
 
             case "modificar":
                 try{
-                    sqlDataBaseW.execSQL("UPDATE tbcelus SET gama = '"+datos[1]+"', marca = '"+datos[2]+"', modelo = '"+datos[3]+"', precio = '"+datos[4]+"', fecha_venta = '"+datos[5]+"' WHERE idCelular = '"+datos[0]+"'");
+                    sqlDataBaseW.execSQL("UPDATE tbcelu SET gama = '"+datos[1]+"', marca = '"+datos[2]+"', modelo = '"+datos[3]+"', precio = '"+datos[4]+"', fecha_venta = '"+datos[5]+"' WHERE idCelular = '"+datos[0]+"'");
 
                 }catch (Exception e){
                     Toast.makeText(miContext.getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -53,7 +53,7 @@ public class DB extends SQLiteOpenHelper {
                 break;
 
             case "eliminar":
-                sqlDataBaseW.execSQL("DELETE FROM tbcelus WHERE idCelular = '"+datos[0]+"'");
+                sqlDataBaseW.execSQL("DELETE FROM tbcelu WHERE idCelular = '"+datos[0]+"'");
 
         }
 

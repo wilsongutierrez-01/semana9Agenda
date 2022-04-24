@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/txtGamaAlta2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary80"
+    android:background="@color/teal_200"
     tools:context=".Celu2">
 
     <Button
@@ -20,29 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="183dp"
-        android:layout_height="230dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.149"
-        app:srcCompat="@drawable/ima2" />
-
-    <TextView
-        android:id="@+id/txtGamaAlta2"
-        android:layout_width="136dp"
-        android:layout_height="34dp"
-        android:gravity="center"
-        android:text="@string/GA3"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/bt3"
         android:layout_width="wrap_content"
@@ -55,17 +31,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="176dp"
+        android:layout_height="225dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGamaAlta2"
+        app:srcCompat="@drawable/ima2" />
+
+    <TextView
+        android:id="@+id/txtGamaAlta2"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/GA3"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <AutoCompleteTextView
         android:id="@+id/atxt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pantalla: 6.6&quot;, 1228 x 2700 pixels. Procesador: Snapdragon 888 2.84GHz / Kirin 9000 3.13GHz. RAM: 8GB/12GB. Almacenamiento: 128GB/256GB/512GB. Expansión: NM. Cámara: Cuádruple, 50MP+64MP +13MP+40MP. Batería: 4360 mAh. OS: HarmonyOS 2.0. Perfil: 8.5 mm. Peso: 195 g"
-        android:textSize="16sp"
+        android:text='Pantalla: 6.6", 1228 x 2700 pixels. Procesador: Snapdragon 888 2.84GHz / Kirin 9000 3.13GHz. RAM: 8GB/12GB. Almacenamiento: 128GB/256GB/512GB. Expansión: NM. Cámara: Cuádruple, 50MP+64MP +13MP+40MP. Batería: 4360 mAh. OS: HarmonyOS 2.0. Perfil: 8.5 mm. Peso: 195 g.'
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.595" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.253" />
 </androidx.constraintlayout.widget.ConstraintLayout>

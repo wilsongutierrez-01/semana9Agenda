@@ -39,6 +39,15 @@ public class Principal extends AppCompatActivity {
                 Intent cata = new Intent(Principal.this,Celu1.class);
                 startActivity(cata);
             }
+        });
+        Button btnCON = (Button)findViewById(R.id.btnContacto);
+
+        btnCON.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent con = new Intent(Principal.this,Contactos.class);
+                startActivity(con);
+            }
 
         });
     }
