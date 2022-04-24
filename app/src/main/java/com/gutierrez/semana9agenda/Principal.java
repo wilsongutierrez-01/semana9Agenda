@@ -18,7 +18,7 @@ public class Principal extends AppCompatActivity {
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Agre = new Intent(Principal.this,AddCelulares.class);
+                Intent Agre = new Intent(Principal.this,MainActivity2.class);
                 startActivity(Agre);
             }
         });
@@ -36,9 +36,11 @@ public class Principal extends AppCompatActivity {
         btnCatal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cata = new Intent(Principal.this,Celu2.class);
+                Intent cata = new Intent(Principal.this,Celu1.class);
                 startActivity(cata);
             }
+
         });
     }
 }
+

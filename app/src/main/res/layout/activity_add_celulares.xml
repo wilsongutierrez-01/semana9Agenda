@@ -20,7 +20,8 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/ventas"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
 
     <TextView
         android:id="@+id/lblTittle"
@@ -113,7 +114,8 @@
         android:ems="10"
         android:gravity="center"
         android:hint="@string/precio"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
 
     <Button
         android:id="@+id/btnVolver"
