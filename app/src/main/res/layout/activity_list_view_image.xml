@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light">
 
     <TextView
-        android:id="@+id/lblAmigo"
+        android:id="@+id/lblGama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="90dp"
         android:layout_marginTop="10dp"
         android:text="Juan Perez"
         android:textColor="#000000"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/lblNumero"
+        android:id="@+id/lblMarca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lblAmigo"
+        android:layout_below="@id/lblGama"
         android:layout_marginLeft="90dp"
         android:layout_marginTop="5dp"
         android:text="2626-2222"
@@ -28,22 +28,30 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/lblprecio"
+        android:id="@+id/lblModelo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lblNumero"
+        android:layout_below="@id/lblMarca"
         android:layout_marginLeft="90dp"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/lblCorreo"
+        android:id="@+id/lblPrecio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="200dp"
-        android:text="Presentacion"
-        android:textColor="#8BC34A"/>
+        android:layout_below="@id/lblModelo"
+        android:layout_marginLeft="90dp"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
 
+    <TextView
+        android:id="@+id/lblVenta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lblPrecio"
+        android:layout_marginLeft="90dp"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
 
 </RelativeLayout>

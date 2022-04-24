@@ -12,45 +12,50 @@ import java.util.ArrayList;
 
 public class ImageAdapter extends BaseAdapter {
     Context context;
-    ArrayList<Friends> datosAmigosArrayList;
+    ArrayList<Celulares> datosCelularesArrayList;
     LayoutInflater layoutInflater;
-    Friends misAmigos;
+    Celulares misCelulares;
 
-    public ImageAdapter(Context context, ArrayList<Friends> datosAmigosArrayList) {
+    public ImageAdapter(Context context, ArrayList<Celulares> datosCelularesArrayList) {
         this.context = context;
-        this.datosAmigosArrayList = datosAmigosArrayList;
+        this.datosCelularesArrayList = datosCelularesArrayList;
     }
     @Override
     public int getCount() {
-        return datosAmigosArrayList.size();
+        return datosCelularesArrayList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return datosAmigosArrayList.get(i);
+        return datosCelularesArrayList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return Long.parseLong(datosAmigosArrayList.get(i).getIdAmigo());
+        return Long.parseLong(datosCelularesArrayList.get(i).getIdCelular());
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         layoutInflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         View Visor = layoutInflater.inflate(R.layout.activity_list_view_image,viewGroup,false);
-        TextView temp = Visor.findViewById(R.id.lblAmigo);
+        TextView temp = Visor.findViewById(R.id.lblGama);
 
         try {
-            misAmigos = datosAmigosArrayList.get(i);
-            temp.setText(misAmigos.getName());
+            misCelulares = datosCelularesArrayList.get(i);
+            temp.setText(misCelulares.getGama());
 
-            temp = Visor.findViewById(R.id.lblNumero);
-            temp.setText("Numero: " + misAmigos.getNumber());
+            temp = Visor.findViewById(R.id.lblMarca);
+            temp.setText("Marca: " + misCelulares.getMarca());
 
+            temp = Visor.findViewById(R.id.lblModelo);
+            temp.setText("Modelo: " + misCelulares.getModelo());
 
-            temp = Visor.findViewById(R.id.lblCorreo);
-            temp.setText("Correo: " + misAmigos.getEmail());
+            temp = Visor.findViewById(R.id.lblPrecio);
+            temp.setText("Precio: " + misCelulares.getPrecio());
+
+            temp = Visor.findViewById(R.id.lblVenta);
+            temp.setText("Venta: " + misCelulares.getFecha_venta());
 
 
         }catch (Exception e){

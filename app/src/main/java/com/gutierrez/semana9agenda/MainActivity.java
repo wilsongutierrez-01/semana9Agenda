@@ -23,20 +23,20 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    Cursor datosAmigosCursor = null;
-    Friends misAmigos;
+    Cursor datosCelularesCursor = null;
+    Celulares misCelulares;
     DB miDB;
     FloatingActionButton btn;
-    ListView ltsAmigos;
-    ArrayList<Friends> amigosArrayList = new ArrayList<Friends>();
-    ArrayList<Friends> amigosrrayListCopy = new ArrayList<Friends>();
+    ListView ltsCelulares;
+    ArrayList<Celulares> celularesArrayList = new ArrayList<Celulares>();
+    ArrayList<Celulares> celularesArrayListCopy = new ArrayList<Celulares>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn = findViewById(R.id.btnAgregarAmigo);
+        btn = findViewById(R.id.btnAgregarCelular);
         try {
             comprobarDatos();
         } catch (Exception e) {
@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         btn.setOnClickListener(v -> {
-            agregarAmigo("nuevo", new String[]{});
+            agregarCelular("nuevo", new String[]{});
         });
 
-        buscarAmigo();
+        buscarCelular();
     }
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -55,30 +55,32 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater myMenu = getMenuInflater();
         myMenu.inflate(R.menu.menu, menu);
         AdapterView.AdapterContextMenuInfo mymenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
-        datosAmigosCursor.moveToPosition(mymenuInfo.position);
-        menu.setHeaderTitle(datosAmigosCursor.getString(1));
+        datosCelularesCursor.moveToPosition(mymenuInfo.position);
+        menu.setHeaderTitle(datosCelularesCursor.getString(1));
     }
 
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         try {
             switch (item.getItemId()) {
                 case R.id.mnxagregar:
-                    agregarAmigo("nuevo", new String[]{});
+                    agregarCelular("nuevo", new String[]{});
                     break;
 
                 case R.id.mnxmodificar:
                     String[] datos = {
-                            datosAmigosCursor.getString(0),//idAmigo
-                            datosAmigosCursor.getString(1),//Nombre
-                            datosAmigosCursor.getString(2),//Numero
-                            datosAmigosCursor.getString(3),//Correo
+                            datosCelularesCursor.getString(0),//idCelular
+                            datosCelularesCursor.getString(1),//Gama
+                            datosCelularesCursor.getString(2),//Marca
+                            datosCelularesCursor.getString(3),//Modelo
+                            datosCelularesCursor.getString(4),//Precio
+                            datosCelularesCursor.getString(5),//Fecha_venta
 
                     };
-                    agregarAmigo("modificar", datos);
+                    agregarCelular("modificar", datos);
                     break;
 
                 case R.id.mnxeliminar:
-                    eliminarAmigo();
+                    eliminarCelular();
                     break;
 
             }
@@ -92,14 +94,14 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
     }
 
-    private void eliminarAmigo() {
+    private void eliminarCelular() {
         try {
             AlertDialog.Builder confirmacion = new AlertDialog.Builder(MainActivity.this);
             confirmacion.setTitle("¿Seguro desea eliminar?");
-            confirmacion.setMessage(datosAmigosCursor.getString(2));
+            confirmacion.setMessage(datosCelularesCursor.getString(2));
             confirmacion.setPositiveButton("SI", ((dialog, which) -> {
                 miDB = new DB(getApplicationContext(), "", null, 1);
-                datosAmigosCursor = miDB.admin_amigo("eliminar", new String[]{datosAmigosCursor.getString(0)});
+                datosCelularesCursor = miDB.admin_amigo("eliminar", new String[]{datosCelularesCursor.getString(0)});
                 comprobarDatos();
                 mostrarMsgToast("Eliminado correcto");
                 dialog.dismiss();
@@ -118,8 +120,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void buscarAmigo() {
-        TextView temp = findViewById(R.id.txtBuscarAmigos);
+    private void buscarCelular() {
+        TextView temp = findViewById(R.id.txtBuscarCelulares);
         temp.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -128,24 +130,30 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                amigosArrayList.clear();
+                celularesArrayList.clear();
                 if (temp.getText().toString().length() < 1) {
-                    amigosArrayList.addAll(amigosrrayListCopy);
+                    celularesArrayList.addAll(celularesArrayListCopy);
                 } else {
-                    for (Friends AO : amigosrrayListCopy) {
-                        String Nombre = AO.getName();
-                        String Numero = AO.getNumber();
-                        String Correo = AO.getEmail();
+                    for (Celulares AO : celularesArrayListCopy) {
+                        String Gama = AO.getGama();
+                        String Marca = AO.getMarca();
+                        String Model = AO.getModelo();
+                        String Precio = AO.getPrecio();
+                        String Venta = AO.getFecha_venta();
                         String buscando = temp.getText().toString().trim().toLowerCase();
-                        if (Nombre.toLowerCase().contains(buscando) ||
-                                Numero.toLowerCase().contains(buscando) ||
-                                Correo.toLowerCase().contains(buscando)) {
-                            amigosArrayList.add(AO);
+                        if (
+                                            Gama.toLowerCase().contains(buscando) ||
+                                            Marca.toLowerCase().contains(buscando) ||
+                                            Model.toLowerCase().contains(buscando) ||
+                                            Precio.toLowerCase().contains(buscando) ||
+                                            Venta.toLowerCase().contains(buscando)
+                        ) {
+                            celularesArrayList.add(AO);
                         }
                     }
                 }
-                ImageAdapter amigoEncontrado = new ImageAdapter(getApplicationContext(), amigosArrayList);
-                ltsAmigos.setAdapter(amigoEncontrado);
+                ImageAdapter celularEncontrado = new ImageAdapter(getApplicationContext(), celularesArrayList);
+                ltsCelulares.setAdapter(celularEncontrado);
             }
 
             @Override
@@ -156,13 +164,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void agregarAmigo(String accion, String[] datos) {
+    private void agregarCelular(String accion, String[] datos) {
         try {
-            Bundle parametroAmigo = new Bundle();
-            parametroAmigo.putString("accion", accion);
-            parametroAmigo.putStringArray("datos", datos);
-            Intent nuevoProducto = new Intent(getApplicationContext(), AddFriends.class);
-            nuevoProducto.putExtras(parametroAmigo);
+            Bundle parametroCelular = new Bundle();
+            parametroCelular.putString("accion", accion);
+            parametroCelular.putStringArray("datos", datos);
+            Intent nuevoProducto = new Intent(getApplicationContext(), AddCelulares.class);
+            nuevoProducto.putExtras(parametroCelular);
             startActivity(nuevoProducto);
         } catch (Exception e) {
             mostrarMsgToast(e.getMessage());
@@ -172,40 +180,42 @@ public class MainActivity extends AppCompatActivity {
 
     private void comprobarDatos() {
         miDB = new DB(getApplicationContext(), "", null, 1);
-        datosAmigosCursor = miDB.admin_amigo("consultar", null);
+        datosCelularesCursor = miDB.admin_amigo("consultar", null);
 
-        if (datosAmigosCursor.moveToFirst()) {
-            mostrarAmigo();
+        if (datosCelularesCursor.moveToFirst()) {
+            mostrarCelular();
 
 
         } else {
             mostrarMsgToast("Porfavor agregar datos");
-            agregarAmigo("nuevo", new String[]{});
+            agregarCelular("nuevo", new String[]{});
         }
 
     }
 
-    private void mostrarAmigo() {
-        ltsAmigos = findViewById(R.id.ltsamigos);
-        amigosArrayList.clear();
-        amigosrrayListCopy.clear();
+    private void mostrarCelular() {
+        ltsCelulares = findViewById(R.id.ltscelulares);
+        celularesArrayList.clear();
+        celularesArrayListCopy.clear();
 
         do {
-            misAmigos = new Friends(
-                    datosAmigosCursor.getString(0),//idAmigo
-                    datosAmigosCursor.getString(1),//Nombre
-                    datosAmigosCursor.getString(2),//Numero
-                    datosAmigosCursor.getString(3)//Correo
+            misCelulares = new Celulares(
+                    datosCelularesCursor.getString(0),//idCelular
+                    datosCelularesCursor.getString(1),//Gama
+                    datosCelularesCursor.getString(2),//Marca
+                    datosCelularesCursor.getString(3),//Modelo
+                    datosCelularesCursor.getString(4),//Precio
+                    datosCelularesCursor.getString(5)//Fecha_venta
             );
-            amigosArrayList.add(misAmigos);
-        } while (datosAmigosCursor.moveToNext());
+            celularesArrayList.add(misCelulares);
+        } while (datosCelularesCursor.moveToNext());
 
         try {
-            ImageAdapter adaptadorImagenes = new ImageAdapter(getApplicationContext(), amigosArrayList);
-            ltsAmigos.setAdapter(adaptadorImagenes);
+            ImageAdapter adaptadorImagenes = new ImageAdapter(getApplicationContext(), celularesArrayList);
+            ltsCelulares.setAdapter(adaptadorImagenes);
 
-            registerForContextMenu(ltsAmigos);
-            amigosrrayListCopy.addAll(amigosArrayList);
+            registerForContextMenu(ltsCelulares);
+            celularesArrayListCopy.addAll(celularesArrayList);
 
         } catch (Exception e) {
             mostrarMsgToast(e.getMessage());

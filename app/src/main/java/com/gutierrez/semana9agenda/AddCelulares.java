@@ -2,6 +2,7 @@ package com.gutierrez.semana9agenda;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -10,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class AddFriends extends AppCompatActivity {
+public class AddCelulares extends AppCompatActivity {
     FloatingActionButton btnAtras;
-    String idAmigo, accion="nuevo";
+    String idCelular, accion="nuevo";
     Button btn;
     DB miDB;
     TextView tempVal;
@@ -20,7 +21,16 @@ public class AddFriends extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_friends);
+        setContentView(R.layout.activity_add_celulares);
+        Button btnVolver = (Button)findViewById(R.id.btnVolver);
+
+        btnVolver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent volver = new Intent(AddCelulares.this,Principal.class);
+                startActivity(volver);
+            }
+        });
         miDB = new DB (getApplicationContext(),"",null,1);
 
         btnAtras = findViewById(R.id.btnAtras);
@@ -29,32 +39,38 @@ public class AddFriends extends AppCompatActivity {
         });
 
 
-        btn = findViewById(R.id.btnGuardarAmigo);
+        btn = findViewById(R.id.btnGuardarCelular);
         btn.setOnClickListener(v->{
-            agregarAmigo();
+            agregarCelular();
         });
-        mostrarDatosAmigos();
+        mostrarDatosCelulares();
     }
 
     //Metodo para agregar amigos
-    private void agregarAmigo () {
+    private void agregarCelular () {
 
-        tempVal = findViewById(R.id.txtName);
-        String nombre = tempVal.getText().toString();
+        tempVal = findViewById(R.id.txtGama);
+        String gama = tempVal.getText().toString();
 
-        tempVal = findViewById(R.id.txtNumber);
-        String numero = tempVal.getText().toString();
+        tempVal = findViewById(R.id.txtMarca);
+        String marca = tempVal.getText().toString();
 
-        tempVal = findViewById(R.id.txtEmail);
-        String email = tempVal.getText().toString();
+        tempVal = findViewById(R.id.txtModelo);
+        String modelo = tempVal.getText().toString();
+
+        tempVal = findViewById(R.id.txtPrecio);
+        String precio = tempVal.getText().toString();
+
+        tempVal = findViewById(R.id.txtVenta);
+        String fecha_venta = tempVal.getText().toString();
 
 
         try {
-            String [] datos = {idAmigo,nombre, numero, email};
+            String [] datos = {idCelular,gama, marca, modelo, precio, fecha_venta};
             miDB.admin_amigo(accion,datos);
-            mostrarMsgToast("Amigo guardado con exito");
+            mostrarMsgToast("Celular guardado con exito");
             mostrarVistaPrincipal();
-            mostrarDatosAmigos();
+            mostrarDatosCelulares();
 
         }catch(Exception e){
             mostrarMsgToast("error aca" + e);
@@ -75,19 +91,22 @@ public class AddFriends extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_LONG).show();
     }
 
-    private void mostrarDatosAmigos() {
+    private void mostrarDatosCelulares() {
         try {
             Bundle parametros= getIntent().getExtras();
             accion = parametros.getString("accion");
             if (accion.equals("modificar")){
                 String[] datos = parametros.getStringArray("datos");
-                idAmigo = datos[0];
-                tempVal = findViewById(R.id.txtName);
+                idCelular = datos[0];
+                tempVal = findViewById(R.id.txtGama);
                 tempVal.setText(datos[1]);
-                tempVal = findViewById(R.id.txtNumber);
+                tempVal = findViewById(R.id.txtMarca);
                 tempVal.setText(datos[2]);
-                tempVal = findViewById(R.id.txtEmail);
-
+                tempVal = findViewById(R.id.txtModelo);
+                tempVal.setText(datos[3]);
+                tempVal = findViewById(R.id.txtPrecio);
+                tempVal.setText(datos[4]);
+                tempVal = findViewById(R.id.txtVenta);
 
             }
 

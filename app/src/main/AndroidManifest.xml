@@ -10,8 +10,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semana9Agenda">
         <activity
-            android:name=".AddFriends"
+            android:name=".AcercaDe"
             android:exported="false" />
+        <activity
+            android:name=".Celu9"
+            android:exported="false" />
+        <activity
+            android:name=".Celu8"
+            android:exported="false" />
+        <activity
+            android:name=".Celu7"
+            android:exported="false" />
+        <activity
+            android:name=".Celu6"
+            android:exported="false" />
+        <activity
+            android:name=".Celu5"
+            android:exported="false" />
+        <activity
+            android:name=".Celu4"
+            android:exported="false" />
+        <activity
+            android:name=".Celu3"
+            android:exported="false" />
+        <activity
+            android:name=".Celu2"
+            android:exported="false" />
+        <activity
+            android:name=".Celu1"
+            android:exported="false" />
+        <activity
+            android:name=".AddCelulares"
+            android:exported="false" />
+        <activity
+                android:name=".Principal"
+                android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
