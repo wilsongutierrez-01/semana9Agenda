@@ -52,4 +52,16 @@
     <string name="con">CONTÁCTANOS</string>
     <string name="bvol">VOLVER AL MENÚ</string>
     <string name="bcontact">CONTÁCTANOS</string>
+
+    <string name="bcompra">ADQUIRIR</string>
+
+    <string name="tv">Seleccione una forma de pago:</string>
+
+    <string name="tv1">Pago seguro por tarjeta de creditoo debito </string>
+    <string name="tv2">Titular de tarjeta </string>
+    <string name="tv3">Número de trajeta</string>
+    <string name="btnP">Pagar y Finalizar </string>
+    <string name="tv78">Nombre del producto  </string>
+
+
 </resources>

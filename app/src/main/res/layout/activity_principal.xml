@@ -13,9 +13,8 @@
         android:layout_height="86dp"
         android:layout_below="@+id/btnAgregarVenta"
         android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="87dp"
+        android:layout_marginEnd="86dp"
         android:backgroundTint="@color/design_default_color_error"
         android:text="@string/btn3"
         android:textColor="@color/black"
@@ -98,6 +97,22 @@
         android:layout_marginEnd="78dp"
         android:backgroundTint="@color/design_default_color_error"
         android:text="@string/bcontact"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnAquirir"
+        android:layout_width="254dp"
+        android:layout_height="71dp"
+        android:layout_below="@+id/btnAcercaDe"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="75dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="@string/bcompra"
         android:textColor="@color/black"
         android:textSize="20sp" />
 

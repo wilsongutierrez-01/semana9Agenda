@@ -50,6 +50,17 @@ public class Principal extends AppCompatActivity {
             }
 
         });
+
+        Button btnAqui = (Button) findViewById(R.id.btnAquirir);
+
+
+        btnAqui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent RegisC = new Intent(Principal.this,RegistraPedido.class);
+                startActivity(RegisC);
+            }
+        });
     }
 }
 

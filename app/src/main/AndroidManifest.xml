@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Semana9Agenda">
         <activity
+            android:name=".RegistraPedido"
+            android:exported="false" />
+        <activity
             android:name=".Contactos"
             android:exported="false" />
         <activity
