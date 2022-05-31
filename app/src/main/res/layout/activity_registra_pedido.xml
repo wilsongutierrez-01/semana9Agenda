@@ -28,10 +28,9 @@
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.873"
+        app:layout_constraintVertical_bias="0.866"
         app:srcCompat="@drawable/visa_pago" />
 
     <EditText
@@ -118,6 +117,7 @@
         android:layout_width="389dp"
         android:layout_height="74dp"
         android:backgroundTint="#1E88E5"
+        android:onClick="eventoBoton"
         android:text="Pagar y Finalizar"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,5 +157,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.517" />
+
+    <Button
+        android:id="@+id/btvuelve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volver al menú"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
